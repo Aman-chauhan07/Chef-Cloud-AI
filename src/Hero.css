@@ -1,0 +1,40 @@
+form {
+    display: flex;
+    justify-content: center;
+    /* center horizontally */
+    align-items: center;
+    /* center vertically */
+    gap: 10px;
+    /* space between input and button */
+    margin-top: 50px;
+    /* optional spacing from top */
+}
+
+.input {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #D1D5DB;
+    outline: none;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    width: 100%;
+    min-width: 250px;
+    max-width: 450px;
+}
+
+.btn {
+    padding: 10px 20px 10px 20px;
+    font-size: 16px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn::before {
+    content: "+";
+    margin-right: 5px;
+}
