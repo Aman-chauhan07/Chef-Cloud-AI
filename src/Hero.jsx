@@ -6,9 +6,9 @@ function Hero() {
   const [value, setValue] = useState("");
 
   const ingredientsListItems = ingredients.map((ingredient, index) => (
-      <li key={index}>{ingredient}</li>
-    ));
-  
+    <li key={index}>{ingredient}</li>
+  ));
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -29,7 +29,17 @@ function Hero() {
         />
         <button className="btn">Add Ingredient</button>
       </form>
-      <ul>{ingredientsListItems}</ul>
+      <section>
+        <h2 className="hading">Ingredients on Hand:</h2>
+        <ul className="ingredients-list" aria-live="polite">{ingredientsListItems}</ul>
+        <div className="get-recipe-container">
+          <div>
+            <h3>Ready for a recipe?</h3>
+            <p>Generate a recipe from your list of ingredients.</p>
+          </div>
+          <button>Get a recipe</button>
+        </div>
+      </section>
     </div>
   );
 }

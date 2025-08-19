@@ -38,36 +38,49 @@ form {
     content: "+";
     margin-right: 8px;
 }
-
-/* UL container */
-ul {
-  list-style-type: none; /* bullets remove */
-  padding: 0;
-  margin: 20px auto; /* ul center horizontally */
-  display: flex;
-  flex-direction: column; /* vertical list */
-  align-items: center; /* li center horizontally */
-  max-width: 400px; /* optional width for better layout */
+ul.ingredients-list {
+    margin-bottom: 48px;
 }
 
-/* LI items */
-ul li {
-  background-color: #f2f2f2; /* light grey background */
-  padding: 10px 20px; /* space inside each li */
-  margin: 5px 0; /* vertical spacing between li */
-  border-radius: 8px; /* rounded corners */
-  width: 100%; /* li takes full width of ul */
-  text-align: center; /* center text inside li */
-  font-size: 16px;
-  font-weight: 500;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* subtle shadow */
-  transition: transform 0.2s, background-color 0.2s;
+ul.ingredients-list > li {
+    color: #475467;
+    line-height: 28px;
+}
+.hading{
+     font-family: Inter, sans-serif;
+}
+.get-recipe-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    background: #F0EFEB;
+    padding: 15px 15px;
+    margin: 0px 20em;
 }
 
-/* Hover effect for li */
-ul li:hover {
-  background-color: #d1e7ff; /* light blue on hover */
-  transform: scale(1.02); /* slight zoom effect */
-  cursor: pointer;
+.get-recipe-container h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 24px;
+     font-family: Inter, sans-serif;
 }
 
+.get-recipe-container p {
+    color: #6B7280;
+    font-size: 0.875rem;
+    line-height: 20px;
+     font-family: Inter, sans-serif;
+}
+
+.get-recipe-container button {
+    border: none;
+    border-radius: 6px;
+    background: #D17557;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    color: #FAFAF8;
+    padding: 9px 17px;
+    font-family: Inter, sans-serif;
+    font-size: 0.875rem;
+    cursor: pointer;
+}
