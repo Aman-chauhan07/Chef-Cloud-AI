@@ -38,3 +38,36 @@ form {
     content: "+";
     margin-right: 8px;
 }
+
+/* UL container */
+ul {
+  list-style-type: none; /* bullets remove */
+  padding: 0;
+  margin: 20px auto; /* ul center horizontally */
+  display: flex;
+  flex-direction: column; /* vertical list */
+  align-items: center; /* li center horizontally */
+  max-width: 400px; /* optional width for better layout */
+}
+
+/* LI items */
+ul li {
+  background-color: #f2f2f2; /* light grey background */
+  padding: 10px 20px; /* space inside each li */
+  margin: 5px 0; /* vertical spacing between li */
+  border-radius: 8px; /* rounded corners */
+  width: 100%; /* li takes full width of ul */
+  text-align: center; /* center text inside li */
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* subtle shadow */
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+/* Hover effect for li */
+ul li:hover {
+  background-color: #d1e7ff; /* light blue on hover */
+  transform: scale(1.02); /* slight zoom effect */
+  cursor: pointer;
+}
+
