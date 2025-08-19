@@ -28,8 +28,9 @@ function Hero() {
           onChange={(e) => setValue(e.target.value)}
         />
         <button className="btn">Add Ingredient</button>
-      </form>
-      <section>
+      </form> 
+    
+      {ingredients.length && <section>
         <h2 className="hading">Ingredients on Hand:</h2>
         <ul className="ingredients-list" aria-live="polite">{ingredientsListItems}</ul>
         <div className="get-recipe-container">
@@ -39,7 +40,7 @@ function Hero() {
           </div>
           <button>Get a recipe</button>
         </div>
-      </section>
+      </section> }
     </div>
   );
 }
