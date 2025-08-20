@@ -1,20 +1,13 @@
 import { useState, useRef } from "react";
-import "./Hero.css";
-import ClaudeRecipe from "./ClaudeRecipe";
 import IngredientsList from "./IngredientsList";
+import ClaudeRecipe from "./ClaudeRecipe";
+import { getRecipesByIngredients, getRecipeInformation } from "./api/recipeApi";
 
 function Hero() {
   const [ingredients, setIngredients] = useState([]);
   const [value, setValue] = useState("");
   const inputRef = useRef(null);
-  const [recipeShown, setRecipeShown] = useState(false)
-
-
-  
-  function toggleRecipeShown() {
-    setRecipeShown(prev => !prev);
-  }
-  
+  const [recipes, setRecipes] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -22,6 +15,23 @@ function Hero() {
     setIngredients([...ingredients, value]);
     setValue("");
     inputRef.current.focus();
+  }
+
+  async function handleGetRecipe() {
+    if (ingredients.length < 4) {
+      alert("Please enter at least 4 ingredients!");
+      return;
+    }
+
+    // Step 1: get recipes list
+    const data = await getRecipesByIngredients(ingredients);
+
+    // Step 2: fetch details for each recipe
+    const detailedRecipes = await Promise.all(
+      data.map((r) => getRecipeInformation(r.id))
+    );
+
+    setRecipes(detailedRecipes);
   }
 
   return (
@@ -38,11 +48,14 @@ function Hero() {
         <button className="btn">Add Ingredient</button>
       </form>
 
-      {ingredients.length > 0 && <IngredientsList
-        ingredients={ingredients}
-        toggleRecipeShown={toggleRecipeShown}
-      />}
-      {recipeShown && <ClaudeRecipe />}
+      {ingredients.length > 0 && (
+        <IngredientsList
+          ingredients={ingredients}
+          onGetRecipe={handleGetRecipe}
+        />
+      )}
+
+      {recipes.length > 0 && <ClaudeRecipe recipes={recipes} />}
     </div>
   );
 }
