@@ -265,7 +265,8 @@ form {
   font-size: 24px;
   margin: 40px 0 20px 0;
   font-weight: 600;
-  color: #222;   /* Normal black/grey text */
+  color: #FF5722;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .hading::after {
