@@ -48,6 +48,7 @@ ul.ingredients-list > li {
 }
 .hading{
      font-family: Inter, sans-serif;
+     padding-left: 15px;
 }
 .get-recipe-container {
     display: flex;

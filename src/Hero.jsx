@@ -1,15 +1,20 @@
 import { useState, useRef } from "react";
 import "./Hero.css";
+import ClaudeRecipe from "./ClaudeRecipe";
+import IngredientsList from "./IngredientsList";
 
 function Hero() {
   const [ingredients, setIngredients] = useState([]);
   const [value, setValue] = useState("");
   const inputRef = useRef(null);
+  const [recipeShown, setRecipeShown] = useState(false)
 
-  const ingredientsListItems = ingredients.map((ingredient, index) => (
-    <li key={index}>{ingredient}</li>
-  ));
 
+  
+  function toggleRecipeShown() {
+    setRecipeShown(prev => !prev);
+  }
+  
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -33,17 +38,11 @@ function Hero() {
         <button className="btn">Add Ingredient</button>
       </form>
 
-      {ingredients.length > 0 && <section>
-        <h2 className="hading">Ingredients on Hand:</h2>
-        <ul className="ingredients-list" aria-live="polite">{ingredientsListItems}</ul>
-        {ingredients.length > 3 && <div className="get-recipe-container">
-          <div>
-            <h3>Ready for a recipe?</h3>
-            <p>Generate a recipe from your list of ingredients.</p>
-          </div>
-          <button>Get a recipe</button>
-        </div>}
-      </section>}
+      {ingredients.length > 0 && <IngredientsList
+        ingredients={ingredients}
+        toggleRecipeShown={toggleRecipeShown}
+      />}
+      {recipeShown && <ClaudeRecipe />}
     </div>
   );
 }
