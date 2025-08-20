@@ -1,4 +1,4 @@
-const API_KEY = "0a94e38cb3ee4c0e93292e59afdeceda";
+const API_KEY = "0a94e38cb3ee4c0e93292e5";
 const BASE_URL = "https://api.spoonacular.com/recipes";
 
 // Step 1: Get recipe list by ingredients
